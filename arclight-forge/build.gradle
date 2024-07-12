@@ -36,7 +36,7 @@ repositories {
     }
     maven { url = 'https://oss.sonatype.org/content/repositories/snapshots/' }
     maven { url = 'https://hub.spigotmc.org/nexus/content/repositories/snapshots/' }
-    maven { url = 'https://files.minecraftforge.net/maven/' }
+    maven { url = 'https://maven.neoforged.net/releases/' }
     maven { url = 'https://maven.izzel.io/releases' }
     maven { url = 'https://jitpack.io/' }
     mavenCentral()
@@ -74,7 +74,7 @@ dependencies {
     implementation 'org.jetbrains:annotations:23.0.0'
     implementation 'org.spongepowered:mixin:0.8.3'
     implementation 'org.apache.logging.log4j:log4j-jul:2.17.2'
-    implementation "net.minecraftforge:fmlloader:${minecraftVersion}-${forgeVersion}"
+    implementation "net.neoforged.fancymodloader:loader:${minecraftVersion}-${fancymodloaderVersion}"
     for (def lib : embedLibs) {
         installer lib
     }

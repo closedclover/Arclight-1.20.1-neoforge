@@ -1,0 +1,55 @@
+plugins {
+    id 'groovy'
+    id 'maven-publish'
+}
+
+group 'io.izzel.arclight'
+version '1.23-neo'
+
+repositories {
+    mavenCentral()
+    maven {
+        name = 'NeoForge Maven'
+        url = 'https://maven.neoforged.net/releases/'
+    }
+}
+
+configurations {
+    embed
+    implementation.extendsFrom(embed)
+}
+
+dependencies {
+    implementation gradleApi()
+    implementation localGroovy()
+    implementation group:'net.neoforged.gradle', name: 'ForgeGradle', version: '${forge_gradle_version}'
+    embed group: 'net.md-5', name: 'SpecialSource', version: '1.11.0'
+    implementation "org.cadixdev:mercury:0.1.0"
+    embed 'org.cadixdev:lorenz-io-proguard:0.5.8'
+    embed 'org.cadixdev:lorenz:0.5.8'
+}
+
+java.toolchain.languageVersion = JavaLanguageVersion.of(16)
+
+jar {
+    from(configurations.embed.collect { it.isDirectory() ? it : zipTree(it) })
+    duplicatesStrategy = DuplicatesStrategy.EXCLUDE
+}
+
+publishing {
+    repositories {
+        maven {
+            name = "IzzelAliz"
+            url = uri("https://maven.izzel.io/releases")
+            credentials {
+                username = project.findProperty("gpr.user") ?: System.getenv("USERNAME")
+                password = project.findProperty("gpr.key") ?: System.getenv("TOKEN")
+            }
+        }
+    }
+    publications {
+        gpr(MavenPublication) {
+            from(components.java)
+        }
+    }
+}
