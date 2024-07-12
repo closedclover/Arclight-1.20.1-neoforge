@@ -2,7 +2,7 @@ plugins {
     id "eclipse"
     id "maven-publish"
     //id "net.neoforged.gradle" version "${forge_gradle_version}"
-    id "org.spongepowered.mixin" version "[0.7,0.8)"
+    //id "org.spongepowered.mixin" version "[0.7,0.8)"
 }
 
 apply plugin: 'net.neoforged.gradle'
