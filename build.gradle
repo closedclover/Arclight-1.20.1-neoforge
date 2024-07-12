@@ -21,7 +21,7 @@ allprojects {
         apiVersion = '1.5.4'
         toolsVersion = '1.3.0'
         mixinVersion = '0.8.5'
-        versionName = 'trials'
+        versionName = 'trials-neo'
         gitHash = getGitHash()
     }
 
@@ -49,7 +49,7 @@ def gitBranch() {
 
 tasks.register('uploadFiles', UploadFilesTask) {
     mcVersion.set project.ext.minecraftVersion
-    version.set "${project.version}-${project.ext.gitHash}" + "+" + "neo"
+    version.set "${project.version}-${project.ext.gitHash}"
     snapshot.set project.version.toString().endsWith("-SNAPSHOT")
     gitHash.set project.ext.gitHash
     branch.set gitBranch()
