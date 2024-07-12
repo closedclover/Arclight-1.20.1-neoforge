@@ -2,7 +2,7 @@ import io.izzel.arclight.gradle.tasks.UploadFilesTask
 
 allprojects {
     group 'io.izzel.arclight'
-    version '1.0.6-SNAPSHOT' + '+neo'
+    version '1.0.6-SNAPSHOT'
 
     def getGitHash = { ->
         def stdout = new ByteArrayOutputStream()
@@ -49,7 +49,7 @@ def gitBranch() {
 
 tasks.register('uploadFiles', UploadFilesTask) {
     mcVersion.set project.ext.minecraftVersion
-    version.set "${project.version}-${project.ext.gitHash}"
+    version.set "${project.version}-${project.ext.gitHash}" + "+" + "neo"
     snapshot.set project.version.toString().endsWith("-SNAPSHOT")
     gitHash.set project.ext.gitHash
     branch.set gitBranch()
