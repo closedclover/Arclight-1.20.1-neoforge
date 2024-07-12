@@ -19,10 +19,10 @@ dependencies {
     implementation localGroovy()
     implementation group: 'net.neoforged.gradle', name: 'net.neoforged.gradle.gradle.plugin', version: '6.0.21'
     implementation group: 'net.md-5', name: 'SpecialSource', version: '1.11.0'
+    implementation group: 'org.spongepowered', name: 'mixin', version: '0.8.3'
     implementation 'org.cadixdev:mercury:0.1.0'
     implementation 'org.cadixdev:lorenz-io-proguard:0.5.8'
     implementation 'org.cadixdev:lorenz:0.5.8'
-    implementation 'org.spongepowered:mixin:[0.7,0.8)'
 }
 
 java.toolchain.languageVersion = JavaLanguageVersion.of(17)
